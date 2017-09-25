@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Event;
+use App\CollegeEvent;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -18,11 +18,11 @@ class EventController extends Controller
 
     public function index()
     {
-        return response()->json(['data'=>Event::all()],200);
+        return response()->json(['data'=>CollegeEvent::all()],200);
     }
 
     public function show($event_slug){
-        $event_details=Event::where("slug",$event_slug)->get();
+        $event_details=CollegeEvent::where("slug",$event_slug)->get();
         if(count($event_details)!=0)
             return response()->json(['data'=>$event_details],200);
 
@@ -34,6 +34,7 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $request->slug=str_slug($request->name);
         $this->validate($request,[
                 'name'=>'required|min:6|max:255',
                 'slug'=>'required|unique:event|max:255',
@@ -51,25 +52,24 @@ class EventController extends Controller
         );
         $data = $request->all();
 
-        $event = new Event;
-
-        $event->id=0;//so that it could become first element to be shown
-        $event->name = $data['name'];
-        $event->slug = str_slug($data['name']);
-        $event->category = $data['category'];
-        $event->description = $data['description'];
-        $event->problem_statement = $data['problem_statement'];
-        $event->name1 = $data['name1'];
-        $event->email1 = $data['email1'];
-        $event->contact1 = $data['contact1'];
-        $event->name2 = $data['name2'];
-        $event->email2 = $data['email2'];
-        $event->contact2 = $data['contact2'];
-        $event->faculty = $data['faculty'];
-        $event->save();
+        $new_event = new CollegeEvent;
+        $new_event->id=0;//so that it could become first element to be shown
+        $new_event->name = $data['name'];
+        $new_event->slug = $data['slug'];
+        $new_event->category = $data['category'];
+        $new_event->description = $data['description'];
+        $new_event->problem_statement = $data['problem_statement'];
+        $new_event->name1 = $data['name1'];
+        $new_event->email1 = $data['email1'];
+        $new_event->contact1 = $data['contact1'];
+        $new_event->name2 = $data['name2'];
+        $new_event->email2 = $data['email2'];
+        $new_event->contact2 = $data['contact2'];
+        $new_event->faculty = $data['faculty'];
+        $new_event->save();
 
         return response()->json(['data'=>[
-            $event
+            $new_event
         ]]);
     }
     //

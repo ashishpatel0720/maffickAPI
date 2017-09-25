@@ -11,7 +11,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class CollegeEvent extends Model
 {
     protected $table = 'event'; //so eloquent could know name of table associated with it
     protected $hidden = [

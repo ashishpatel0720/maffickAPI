@@ -18,7 +18,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Event::class, function (Faker\Generator $faker) {
+$factory->define(App\CollegeEvent::class, function (Faker\Generator $faker) {
     return [
         'name' => randomElement(["Event1","Event2","Event4","Event3",]),
         'slug' => $faker->email,
