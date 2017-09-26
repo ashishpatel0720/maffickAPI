@@ -13,7 +13,14 @@
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('team', 'TeamController@index');
+
+    //events
     $router->get("events",'EventController@index');
     $router->get("events/{event_slug}",'EventController@show');
     $router->post("events","EventController@store");
+
+    //can update every thing except name
+    $router->put("events/{event_slug}/edit","EventController@edit");
+    $router->delete("events/{event_slug}/delete","EventController@destroy");
+
 });
