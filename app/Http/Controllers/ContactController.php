@@ -21,22 +21,16 @@ class ContactController extends Controller
         $this->validate($request,[
                 'name'=>'required|max:255', //name of contactor
                 'email'=>"required|email",
-                "contact"=>"nullable|max:20",
+                "contact"=>"max:20",
                 "message"=>"required|max:700",
             ]
         );
 
         $data = $request->all();
 
-        $new_contact = new Contact;
-        $new_contact->id=0;//so that it could become first element to be shown
-        $new_contact->name = $data['name'];
-        $new_contact->email = $data['email'];
-        $new_contact->contact = $data['contact'];
-        $new_contact->message = $data['message'];
-        $new_contact->save();
-
+        $new_contact=Contact::create($data);
         return response()->json(['data'=>[
+
             $new_contact
         ]],201);
     }

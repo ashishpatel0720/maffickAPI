@@ -121,10 +121,9 @@ class EventController extends Controller
             ]
             ],200);
         }
-        $temp=clone $event;
-        $event->delete();
+        $event->delete(); //delete entry from database
         return response()->json(['data'=>[
-            $event //temperary is being send because original has been dele
+            $event
         ]],200);
     }
 
