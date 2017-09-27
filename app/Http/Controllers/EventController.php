@@ -36,36 +36,22 @@ class EventController extends Controller
         $this->validate($request,[
                 'name'=>'required|min:6|max:255',
                 'slug'=>'required|unique:event|max:255',
-                'category'=>'required',
+                'category'=>'required|max:255',
                 'problem_statement'=>'required',
                 'description'=>'required',
                 'name1'=>'required|max:255',
                 'email1'=>"required|email",
-                "contact1"=>"nullable|max:20",
-                "name2"=>"required|max:255",
-                "email2"=>"required|email",
-                "contact2"=>"nullable|max:20",
-                "faculty"=>"nullable",
+                "contact1"=>"required|max:20",
+
+                //optional fields
+                "name2"=>"max:255",
+                "email2"=>"email",
+                "contact2"=>"max:20",
+                "faculty"=>"max:255",
             ]
         );
         $data = $request->all();
-
-        $new_event = new Event;
-        $new_event->id=0;//so that it could become first element to be shown
-        $new_event->name = $data['name'];
-        $new_event->slug = $data['slug'];
-        $new_event->category = $data['category'];
-        $new_event->description = $data['description'];
-        $new_event->problem_statement = $data['problem_statement'];
-        $new_event->name1 = $data['name1'];
-        $new_event->email1 = $data['email1'];
-        $new_event->contact1 = $data['contact1'];
-        $new_event->name2 = $data['name2'];
-        $new_event->email2 = $data['email2'];
-        $new_event->contact2 = $data['contact2'];
-        $new_event->faculty = $data['faculty'];
-        $new_event->save();
-
+        $new_event=Event::create($data);
         return response()->json(['data'=>[
             $new_event
         ]],201);
@@ -88,35 +74,42 @@ class EventController extends Controller
 //        dd('done');
 
         $this->validate($request,[ //all old validations apply here 
-                'category'=>'required',
+                'category'=>'required|max:255',
                 'problem_statement'=>'required',
                 'description'=>'required',
                 'name1'=>'required|max:255',
                 'email1'=>"required|email",
-                "contact1"=>"nullable|max:20",
-                "name2"=>"required|max:255",
-                "email2"=>"required|email",
-                "contact2"=>"nullable|max:20",
-                "faculty"=>"nullable",
+                "contact1"=>"required|max:20",
+
+                //optional fields
+                "name2"=>"max:255",
+                "email2"=>"email",
+                "contact2"=>"max:20",
+                "faculty"=>"max:255",
             ]
         );
-        $data = $request->all();
 
+        //
+        $data=$request->all();
+
+        //old will be updated by all new except name and slug
         $event->category = $data['category'];
         $event->description = $data['description'];
         $event->problem_statement = $data['problem_statement'];
         $event->name1 = $data['name1'];
         $event->email1 = $data['email1'];
         $event->contact1 = $data['contact1'];
-        $event->name2 = $data['name2'];
-        $event->email2 = $data['email2'];
-        $event->contact2 = $data['contact2'];
-        $event->faculty = $data['faculty'];
-        $event->save();
 
+        //optional fields may be empty, if they are empty then we have to replace the old ones
+        $event->name2 = isset($data['name2'])? $data['name2']:null;
+        $event->email2 = isset($data['email2'])? $data['email2']:null;
+        $event->contact2 = isset($data['contact2'])? $data['contact2']:null;
+        $event->faculty = isset($data['faculty'])? $data['faculty']:null;
+        $event->save();
         return response()->json(['data'=>[
             $event
         ]],200);
+
     }
     public function destroy($slug)
     {
@@ -128,9 +121,9 @@ class EventController extends Controller
             ]
             ],200);
         }
-          $temp=clone $event;
-          $event->delete();
-          return response()->json(['data'=>[
+        $temp=clone $event;
+        $event->delete();
+        return response()->json(['data'=>[
             $event //temperary is being send because original has been dele
         ]],200);
     }

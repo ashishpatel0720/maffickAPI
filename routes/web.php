@@ -13,8 +13,11 @@
 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
-    $router->get('team', 'TeamController@index');
 
+    $router->get("/",function(){
+        return view("home");
+    });
+    $router->get('team', 'TeamController@index');
     $router->get("contacts",'ContactController@index');
     $router->post("contacts",'ContactController@store');
     //events
@@ -25,4 +28,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->put("events/{event_slug}/edit","EventController@edit");
     $router->delete("events/{event_slug}/delete","EventController@destroy");
 
+});
+
+$router->get("/",function(){
+    return redirect("api/");
 });

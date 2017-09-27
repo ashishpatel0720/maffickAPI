@@ -25,8 +25,7 @@ class CreateEventTable extends Migration
             $table->string('name2');//cordinator2
             $table->string('email2');
             $table->string('contact2',13);
-            $table->string('faculty');
-            $table->integer('count')->default(0);
+            $table->string('faculty');//faculty cordinator
             $table->timestamps();
 
         });
