@@ -37,10 +37,15 @@ $router->get("/",function(){
     return redirect("api/");
 });
 
-//for admin
-$router->group(['prefix' => 'admin'], function () use ($router){
+//api for admin api
+$router->group(['prefix' => 'admin/api'], function () use ($router){
    //show all contacts
     $router->get('/contacts','ContactController@index');
 
-
+});
+$router->group(['prefix'=>'admin'],function () use ($router){
+   $router->get('/',function(){
+       //this view will start the vue application
+       return view("admin");
+   });
 });

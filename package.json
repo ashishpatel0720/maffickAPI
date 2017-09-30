@@ -22,5 +22,6 @@
   "dependencies": {
     "bulma": "^0.5.3",
     "vue-admin": "^0.1.12"
-  }
+  },
+  "devDependencies": {}
 }
