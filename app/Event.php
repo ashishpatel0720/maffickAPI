@@ -19,17 +19,26 @@ class Event extends Model
     ];
     protected $fillable=[
         'name',
-        'slug',
+        'slug',//will not be passed from post request
         'category',
         'problem_statement',
         'description',
+        'event_datatime',
+        'longitude',
+        'lattitude',
         'name1',
         'email1',
         'contact1',
+        'description1',
         'name2',
         'email2',
         'contact2',
+        'description2',
         'faculty',
-        'count' //TODO:what is this for
     ];
+//   protected $guarded=[
+//       'id',
+//       'created_at',
+//       'updated_at'
+//   ];
 }

@@ -49,11 +49,16 @@ class EventController extends Controller
                 'name1'=>'required|max:255',
                 'email1'=>"required|email",
                 "contact1"=>"required|max:20",
+                'description1'=>'required',
 
                 //optional fields
+                'longitude'=>'nullable',
+                'lattitude'=>'nullable',
+                'event_datatime'=>'date_format:"Y-m-d H:i:s"', //optional but valid time should be given
                 "name2"=>"max:255",
                 "email2"=>"email",
                 "contact2"=>"max:20",
+                'description2'=>'nullable', //not required
                 "faculty"=>"max:255",
             ]
         );
@@ -87,11 +92,16 @@ class EventController extends Controller
                 'name1'=>'required|max:255',
                 'email1'=>"required|email",
                 "contact1"=>"required|max:20",
+                'description1'=>'required',
 
                 //optional fields
+                'longitude'=>'nullable',
+                'lattitude'=>'nullable',
+                'event_datatime'=>'date_format:"Y-m-d H:i:s"', //optional but valid time should be given
                 "name2"=>"max:255",
                 "email2"=>"email",
                 "contact2"=>"max:20",
+                'description2'=>'nullable', //not required
                 "faculty"=>"max:255",
             ]
         );
@@ -108,9 +118,12 @@ class EventController extends Controller
         $event->contact1 = $data['contact1'];
 
         //optional fields may be empty, if they are empty then we have to replace the old ones
+        $event->longitude = isset($data['longitude'])? $data['longitude']:null;
+        $event->lattitude = isset($data['lattitude'])? $data['lattitude']:null;
         $event->name2 = isset($data['name2'])? $data['name2']:null;
         $event->email2 = isset($data['email2'])? $data['email2']:null;
         $event->contact2 = isset($data['contact2'])? $data['contact2']:null;
+        $event->description2 = isset($data['description2'])? $data['description2']:null;
         $event->faculty = isset($data['faculty'])? $data['faculty']:null;
         $event->save();
         return response()->json(['data'=>[
