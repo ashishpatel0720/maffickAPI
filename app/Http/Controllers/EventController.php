@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Event;
+use App\EventCategory;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -11,14 +12,6 @@ class EventController extends Controller
      *
      * @return void
      */
-    public static $categories=[
-        'informals',
-        'competitions',
-        'workshops',
-        'lectures',
-        'exhibitions'
-    ];
-
     public function index()
     {
         return response()->json(['data'=>Event::all()],200);
@@ -43,7 +36,7 @@ class EventController extends Controller
         $this->validate($request,[
                 'name'=>'required|min:6|max:255',
                 'slug'=>'required|unique:event|max:255',
-                'category'=>'required|in:'.implode(self::$categories,','),
+                'category'=>'required|in:'.implode(array_column(EventCategory::$categories,'name'),','),
                 'problem_statement'=>'required',
                 'description'=>'required',
                 'name1'=>'required|max:255',
@@ -68,6 +61,7 @@ class EventController extends Controller
             $new_event
         ]],201);
     }
+
     public function edit(Request $request,$slug)
     {
 //        $request->slug=str_slug($request['name']); //adding slug from name as it was not passed
@@ -82,11 +76,8 @@ class EventController extends Controller
             ],200);
         }
 
-
-//        dd('done');
-
         $this->validate($request,[ //all old validations apply here 
-                'category'=>'required|in:'.implode(self::$categories,','),
+                'category'=>'required|in:'.implode(array_column(EventCategory::$categories,'name'),','),
                 'problem_statement'=>'required',
                 'description'=>'required',
                 'name1'=>'required|max:255',
@@ -150,7 +141,7 @@ class EventController extends Controller
     public function categories()
     {
 
-        return response()->json(['data'=>self::$categories],200);
+        return response()->json(['data'=>EventCategory::$categories],200);
 
     }
 
