@@ -18,8 +18,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         return view("home");
     });
     $router->get('team', 'TeamController@index');
-    $router->get("contacts",'ContactController@index');
     $router->post("contacts",'ContactController@store');
+
     //events
     $router->get("events",'EventController@index');
     $router->get("events/{event_slug}",'EventController@show');
@@ -28,8 +28,19 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->put("events/{event_slug}/edit","EventController@edit");
     $router->delete("events/{event_slug}/delete","EventController@destroy");
 
+    //categories
+    $router->get('/categories','EventController@categories');
+    $router->get("/categories/{category}/events",'EventController@eventByCategory');
 });
 
 $router->get("/",function(){
     return redirect("api/");
+});
+
+//for admin
+$router->group(['prefix' => 'admin'], function () use ($router){
+   //show all contacts
+    $router->get('/contacts','ContactController@index');
+
+
 });

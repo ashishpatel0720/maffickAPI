@@ -10,13 +10,13 @@ class ContactController extends Controller
 
     public function index()
     {
-       $contacts=Contact::all();
+        $contacts=Contact::all();
         return response()->json(['data'=>
             $contacts
         ],200);
     }
 
-   public function store(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request,[
                 'name'=>'required|max:255', //name of contactor
@@ -34,6 +34,5 @@ class ContactController extends Controller
             $new_contact
         ]],201);
     }
-
-    //
 }
+
