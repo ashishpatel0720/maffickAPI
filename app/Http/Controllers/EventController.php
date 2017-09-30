@@ -11,6 +11,13 @@ class EventController extends Controller
      *
      * @return void
      */
+    public static $categories=[
+        'informals',
+        'competitions',
+        'workshops',
+        'lectures',
+        'exhibitions'
+    ];
 
     public function index()
     {
@@ -36,7 +43,7 @@ class EventController extends Controller
         $this->validate($request,[
                 'name'=>'required|min:6|max:255',
                 'slug'=>'required|unique:event|max:255',
-                'category'=>'required|max:255',
+                'category'=>'required|in:'.implode(self::$categories,','),
                 'problem_statement'=>'required',
                 'description'=>'required',
                 'name1'=>'required|max:255',
@@ -74,7 +81,7 @@ class EventController extends Controller
 //        dd('done');
 
         $this->validate($request,[ //all old validations apply here 
-                'category'=>'required|max:255',
+                'category'=>'required|in:'.implode(self::$categories,','),
                 'problem_statement'=>'required',
                 'description'=>'required',
                 'name1'=>'required|max:255',
@@ -127,6 +134,22 @@ class EventController extends Controller
         ]],200);
     }
 
+    public function categories()
+    {
 
+        return response()->json(['data'=>self::$categories],200);
 
+    }
+
+    public function eventByCategory($category)
+    {
+        $events=Event::where("category",$category)->get();
+        if(count($events)!=0)
+            return response()->json(['data'=>$events],200);
+
+        return response()->json(['error'=>[
+            'No Event found for this category'
+        ]
+        ],200);
+    }
 }
