@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="section" >
+    <div class="container is-fluid">
+        <div class="columns">
+            <div class="column is-7-desktop is-offset-2-desktop">
+                <h1 class="title" style="margin-top:1em;">{{title}}</h1>
+
+                <!--//event name-->
+                <div class="field">
+                    <label class="label">Event Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" placeholder="Enter event's name" name="name">
+                        <span class="icon is-small is-left">
+      <i class="fa fa-calendar-o"></i>
+    </span>
+                        <span class="icon is-small is-right">
+    </span>
+                    </div>
+                    <p class="help is-danger" v-show="invalidEventName">This Event Name is already Taken</p>
+                </div>
+
+                <!--category, longitude an lattitude-->
+                <div class="columns">
+                    <div class="column is-4-tablet">
+                        <div class="field ">
+                            <label class="label">Category</label>
+                            <p class="control">
+                            <div class="select">
+                                <select name="category">
+                                    <option>Select a category</option>
+                                    <option :value="category.name" v-for="category in categories">{{category.name}}</option>
+                                </select>
+                            </div>
+                            <p class="help is-danger" v-show="invalidEventCategory">Please select a category</p>
+
+                            </p>
+                        </div>
+                    </div>
+                    <!--longitude-->
+                    <div class="column is-4-tablet">
+
+                        <div class="field">
+                            <label class="label">Longitude (optional)</label>
+                            <p class="control">
+                                <input type='text' class="input is-inline" placeholder="Enter longitude" name="longitude">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--lattitude-->
+                    <div class="column is-4-tablet">
+
+                        <div class="field">
+                            <label class="label">Lattitude (optional)</label>
+                            <div class="control">
+                                <input type='text' class="input is-inline" placeholder="lattitude" name="lattitude">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--//description-->
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Enter Event Description" name="description"></textarea>
+                    </div>
+                    <p class="help is-danger" v-show="invalidDescription">Please Enter Description</p>
+                </div>
+
+                <!--//problem-statement-->
+                <div class="field">
+                    <label class="label">Problem Statement</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Enter Problem Statement" name="problem_statement"></textarea>
+                    </div>
+                    <p class="help is-danger" v-show="invalidProblemStatement">Please Enter Description</p>
+                </div>
+
+                <!--//date time-->
+                <div class="field">
+                    <label class="label">Date time (optional, follow valid format)</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" placeholder="yyyy-mm-dd hh:mm:ss" name="event_datatime">
+                        <span class="icon is-small is-left">
+      <i class="fa fa-calendar"></i>
+    </span>
+                        <span class="icon is-small is-right">
+    </span>
+                    </div>
+
+                </div>
+
+                <!--//Cordinator1-->
+                <h1 class='title'>Cordinator1</h1>
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input " type="name" placeholder="Name" name='name1'>
+                        <span class="icon is-small is-left">
+      <i class="fa fa-address-book-o"></i>
+    </span>
+                        <span class="icon is-small is-right">
+    </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input " type="email" placeholder="Email " input='email1'>
+                        <span class="icon is-small is-left">
+      <i class="fa fa-envelope"></i>
+    </span>
+                        <span class="icon is-small is-right">
+    </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Contact</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="number" placeholder="Contact number " input='contact1'>
+                        <span class="icon is-small is-left">
+      <i class="fa fa-phone"></i>
+    </span>
+                        <span class="icon is-small is-right">
+    </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Enter Cordinator2's Description " name="description1"></textarea>
+                    </div>
+                    <p class="help is-danger" v-show="invalidDescription">Please Enter Description</p>
+                </div>
+
+
+
+                <!--//Cordinator2-->
+                <h1 class='title'>Cordinator2 (optional)</h1>
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input " type="name" placeholder="Name" name='name2'>
+                        <span class="icon is-small is-left">
+      <i class="fa fa-address-book-o"></i>
+    </span>
+                        <span class="icon is-small is-right">
+    </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input " type="email" placeholder="Email " input='email2'>
+                        <span class="icon is-small is-left">
+      <i class="fa fa-envelope"></i>
+    </span>
+                        <span class="icon is-small is-right">
+    </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Contact</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="number" placeholder="Contact number " input='contact2'>
+                        <span class="icon is-small is-left">
+      <i class="fa fa-phone"></i>
+    </span>
+                        <span class="icon is-small is-right"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Enter Cordinator2's Description" name="description2"></textarea>
+                    </div>
+                    <p class="help is-danger" v-show="invalidDescription">Please Enter Description</p>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-primary">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

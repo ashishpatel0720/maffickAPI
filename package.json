@@ -21,7 +21,8 @@
   "homepage": "https://github.com/ashishpatel0720/technosearch#readme",
   "dependencies": {
     "bulma": "^0.5.3",
-    "vue-admin": "^0.1.12"
+    "vue-admin": "^0.1.12",
+    "vue-bulma-datepicker": "^1.3.6"
   },
   "devDependencies": {}
 }

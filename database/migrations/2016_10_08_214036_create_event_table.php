@@ -21,8 +21,8 @@ class CreateEventTable extends Migration
             $table->text('description');
 
             //location
-            $table->float('longitude',10,8);
-            $table->float('lattitude',10,8);
+            $table->float('longitude',10,8)->defaut(0);
+            $table->float('lattitude',10,8)->defaut(0);
 
             //time and date
             $table->timestamp('event_datatime', 0);

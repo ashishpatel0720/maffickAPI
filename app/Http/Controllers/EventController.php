@@ -34,7 +34,7 @@ class EventController extends Controller
         $request['slug']=str_slug($request['name']); //adding slug from name as it was not passed
 
         $this->validate($request,[
-                'name'=>'required|min:6|max:255',
+                'name'=>'required|max:255',
                 'slug'=>'required|unique:event|max:255',
                 'category'=>'required|in:'.implode(array_column(EventCategory::$categories,'name'),','),
                 'problem_statement'=>'required',
@@ -45,8 +45,8 @@ class EventController extends Controller
                 'description1'=>'required',
 
                 //optional fields
-                'longitude'=>'nullable',
-                'lattitude'=>'nullable',
+                'longitude'=>'',
+                'lattitude'=>'',
                 'event_datatime'=>'date_format:"Y-m-d H:i:s"', //optional but valid time should be given
                 "name2"=>"max:255",
                 "email2"=>"email",
