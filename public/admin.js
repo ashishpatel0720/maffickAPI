@@ -270,8 +270,6 @@ Vue.component("event-add-form",{
         submitForm(){
             axios.post("/api/events",this.eventdata)
                 .then((response)=>{
-                    // console.log("success happens");
-                    // console.log(response);
                     Event.$emit('success',response);
                 })
                 .catch(function (response) {
@@ -536,15 +534,19 @@ Vue.component("event-edit-form",{
     },
     methods:{
         submitForm(){
+            if(this.eventdata.slug==""){
+                Event.$emit('message',{message:"Please Enter slug and fatch data!",title:'Error'});
+                return;
+            }
+
             axios.put("/api/events/"+this.eventdata.slug+'/edit',this.eventdata)
                 .then((response)=>{
-                    // console.log("success happens");
-                    // console.log(response);
                     Event.$emit('message',{message:"Event Data updated!",title:'Success'});
-
+                    // Event.$emit('success',response);
                 })
                 .catch(function (response) {
                     Event.$emit('message',{message:"Couldn't able to update Data, try again!",title:'Error'});
+                    // Event.$emit('success',response);
 
                     console.error("error in adding event");
                 });
