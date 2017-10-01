@@ -616,7 +616,7 @@ Vue.component("modal",{
     created(){
         Event.$on('success', (response)=> {
             // alert('success')
-            this.message=response.response.data.data[0];
+            this.message=response.data.data[0];
             this.title='Success';
             this.isVisible=true;
         });
