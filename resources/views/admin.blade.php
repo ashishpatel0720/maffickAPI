@@ -12,12 +12,13 @@
 <div id="app">
     <hero></hero>
 
-    <event-form id="add-event" title="Add Event"></event-form>
+    {{--id will be used for using navigation--}}
+    <event-add-form id="add-event" :editform="false" title="Add Event"></event-add-form>
 
-    <modal></modal>
-    {{--<event-form id="edit-event" title="Edit Event"></event-form>--}}
+    <event-edit-form id="edit-event" :editform="true" title="Edit Event"></event-edit-form>
 
     {{--<view-contacts></view-contacts>--}}
+    <modal></modal>
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
