@@ -17,18 +17,18 @@ Vue.component('hero',{
           <span></span>
         </span>
         <div :class="{'nav-right':true,'nav-menu':true,'is-active':navBarToggle}">
+          <a class="nav-item is-active" href="#view-contacts">
+            View Contacts
+          </a>
           <a class="nav-item is-active" href="#add-event">
             Add Event
           </a>
-          <a class="nav-item" href="#edit-event">
+          <a class="nav-item is-active" href="#edit-event">
             Edit Event
-          </a>
-          <a class="nav-item">
-            View Contacts
           </a>
 
           <span class="nav-item" >
-            <a class="button is-primary is-inverted" href="/api/">
+            <a class="button is-primary is-inverted" href="/api/" target="_blank">
               <span>See API Docs</span>
             </a>
           </span>
@@ -638,6 +638,64 @@ Vue.component("modal",{
         });
     }
 })
+
+Vue.component("contact-message",{
+    props:{
+        contact:{required:true}
+    },
+    template:`
+       <article class="message is-primary" v-show="isVisible">
+   <div class="message-header">
+    <p>{{contact.name}} says...</p>
+    <button  @click="isVisible=false" class="delete" aria-label="delete" title="Hide this message"></button>
+  </div>
+  <div class="message-body">
+        {{contact.message}}
+<!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur eum labore laboriosam laborum neque quod rerum soluta! Aperiam corporis et impedit labore nulla perferendis porro repellendus rerum, sit voluptates. Doloribus.-->
+  </div>
+</article>
+`,
+    data(){
+        return {
+            isVisible:true
+        }
+    },
+});
+
+Vue.component('view-contacts',{
+    props:{
+        title:{default:'Contacts'}
+    },
+    template:`
+<section class="section" style="margin-bottom: -6em;">
+<div class="container">
+      <div class="columns">
+<div class="column is-7-desktop is-offset-2-desktop">
+<h1 class="title" style="margin-top:1em;">{{title}}</h1>
+   <contact-message v-for="contact in contacts":contact="contact"></contact-message>
+   </div>
+   </div>
+   </div>
+    </section>   
+   `,
+    data(){
+        return {
+            contacts:[]
+        }
+    },
+    created(){
+        axios.get("/api/contacts")
+            .then((response)=>{
+                this.contacts=response.data.data;
+                console.log(response);
+            })
+            .catch((response)=>{
+                console.error("Error in fetching contacts");
+                console.log(response);
+            });
+    }
+});
+
 const app=new Vue({
     el:"#app",
 });

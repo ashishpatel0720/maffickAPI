@@ -19,6 +19,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     });
     $router->get('team', 'TeamController@index');
     $router->post("contacts",'ContactController@store');
+    $router->get('/contacts','ContactController@index');
 
     //events
     $router->get("events",'EventController@index');
@@ -37,12 +38,11 @@ $router->get("/",function(){
     return redirect("api/");
 });
 
-//api for admin api
-$router->group(['prefix' => 'admin/api'], function () use ($router){
-   //show all contacts
-    $router->get('/contacts','ContactController@index');
+////api for admin api only
+//$router->group(['prefix' => 'admin/api'], function () use ($router){
+//   //show all contacts
+//});
 
-});
 $router->group(['prefix'=>'admin'],function () use ($router){
    $router->get('/',function(){
        //this view will start the vue application

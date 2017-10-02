@@ -10,7 +10,14 @@ class ContactController extends Controller
 
     public function index()
     {
-        $contacts=Contact::all();
+        $contacts=Contact::latest()->get(); //added for returning in descending order of time
+
+        if(count($contacts)==0){
+            return response()->json(['error'=>
+                ' No one contacted so far'
+            ],200);
+
+        }
         return response()->json(['data'=>
             $contacts
         ],200);
