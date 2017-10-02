@@ -646,7 +646,7 @@ Vue.component("contact-message",{
     template:`
        <article class="message is-primary" v-show="isVisible">
    <div class="message-header">
-    <p>{{contact.name}} says...</p>
+    <p>{{contact.name}} <{{contact.email}} {{contactNumber}}> says...</p>
     <button  @click="isVisible=false" class="delete" aria-label="delete" title="Hide this message"></button>
   </div>
   <div class="message-body">
@@ -660,6 +660,12 @@ Vue.component("contact-message",{
             isVisible:true
         }
     },
+    computed:{
+        contactNumber(){
+            if(this.contact.contact!="")
+            return " | +91-"+this.contact.contact;
+        }
+    }
 });
 
 Vue.component('view-contacts',{
