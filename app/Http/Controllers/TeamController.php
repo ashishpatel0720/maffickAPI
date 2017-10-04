@@ -51,7 +51,8 @@ $data=array (
             'designation' => 'Web Developer',
             'contact' => '+91-7705047900',
             'facebook_link' => 'https://www.facebook.com/ashishpatel0720',
-        ), array (
+        ),
+        array (
             'name' => 'Manohar Lakkoju',
             'category' => 'technosearch',
             'designation' => 'Web Developer',
