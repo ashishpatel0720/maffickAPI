@@ -9,7 +9,6 @@ public function index()
 {
 
 $data=array (
-    0 =>
         array (
             'name' => 'Gopal Singh Rajawat',
             'category' => 'student_council',
@@ -17,7 +16,6 @@ $data=array (
             'contact' => '+91-9165604118',
             'facebook_link' => 'https://www.facebook.com/gopal.rajawat.100',
         ),
-    1 =>
         array (
             'name' => 'Damini Vyas',
             'category' => 'student_council',
@@ -25,7 +23,6 @@ $data=array (
             'contact' => '+91-7470459491',
             'facebook_link' => 'https://www.facebook.com/damini.vyas.9',
         ),
-    2 =>
         array (
             'name' => 'Devashish Tiwari',
             'category' => 'student_council',
@@ -33,7 +30,6 @@ $data=array (
             'contact' => '+91-9407132140',
             'facebook_link' => 'https://www.facebook.com/manit.darsh',
         ),
-    3 =>
         array (
             'name' => 'Kshitij Singh',
             'category' => 'student_council',
@@ -41,7 +37,6 @@ $data=array (
             'contact' => '+91-9425831490',
             'facebook_link' => 'https://www.facebook.com/kshitijsingh97',
         ),
-    4 =>
         array (
             'name' => 'Shubham Pandey',
             'category' => 'student_council',
@@ -49,7 +44,27 @@ $data=array (
             'contact' => '+91-7440950435',
             'facebook_link' => 'https://www.facebook.com/profile.php?id=100004474301995&ref=br_rs',
         ),
-    5 =>
+
+         array (
+            'name' => 'Ashish Patel',
+            'category' => 'technosearch',
+            'designation' => 'Web Developer',
+            'contact' => '+91-7705047900',
+            'facebook_link' => 'https://www.facebook.com/ashishpatel0720',
+        ), array (
+            'name' => 'Manohar Lakkoju',
+            'category' => 'technosearch',
+            'designation' => 'Web Developer',
+            'contact' => '+91-9440365901',
+            'facebook_link' => 'https://www.facebook.com/manohar.lakkoju.9',
+        ),
+        array (
+            'name' => 'Bharat Sunel',
+            'category' => 'technosearch',
+            'designation' => 'Android Developer',
+            'contact' => '+91-8889731492',
+            'facebook_link' => 'https://www.facebook.com/bharatsunel',
+        ),
         array (
             'name' => 'Atul Garg',
             'category' => 'technosearch',
@@ -57,7 +72,6 @@ $data=array (
             'contact' => '+91-9755236855',
             'facebook_link' => 'https://www.facebook.com/atul.garg.90857',
         ),
-    6 =>
         array (
             'name' => 'Vivek Mall',
             'category' => 'technosearch',
@@ -65,7 +79,6 @@ $data=array (
             'contact' => '+91-8130034125',
             'facebook_link' => 'https://www.facebook.com/vivek.mall.7',
         ),
-    7 =>
         array (
             'name' => 'Abhishek Kothapalli',
             'category' => 'technosearch',
@@ -73,7 +86,6 @@ $data=array (
             'contact' => '+91-8985374126',
             'facebook_link' => 'https://www.facebook.com/abhishek.kothapalli',
         ),
-    8 =>
         array (
             'name' => 'Rudra Pratap Singh',
             'category' => 'technosearch',
@@ -81,7 +93,6 @@ $data=array (
             'contact' => '+91-8890098349',
             'facebook_link' => 'https://www.facebook.com/rudrapratap.singh.547',
         ),
-    9 =>
         array (
             'name' => 'Nauneet Pandey',
             'category' => 'technosearch',
@@ -89,7 +100,6 @@ $data=array (
             'contact' => '+91-9634758303',
             'facebook_link' => 'https://www.facebook.com/navneet.kumar.50999',
         ),
-    10 =>
         array (
             'name' => 'Aman Gusain',
             'category' => 'technosearch',
@@ -97,7 +107,6 @@ $data=array (
             'contact' => '+91-9634758303',
             'facebook_link' => 'https://www.facebook.com/aman.gusain.315',
         ),
-    11 =>
         array (
             'name' => 'Rakshan Khan',
             'category' => 'technosearch',
@@ -105,7 +114,6 @@ $data=array (
             'contact' => '+91-7977376905',
             'facebook_link' => 'https://www.facebook.com/IamRakshanKhan',
         ),
-    12 =>
         array (
             'name' => 'Yaman Chourey',
             'category' => 'technosearch',
