@@ -67,6 +67,13 @@ $data=array (
             'facebook_link' => 'https://www.facebook.com/bharatsunel',
         ),
         array (
+            'name' => 'Sawai Singh Rathore',
+            'category' => 'technosearch',
+            'designation' => 'Management Head',
+            'contact' => '+91-7694879090',
+            'facebook_link' => 'https://www.facebook.com/Sawai.Rathore.7773',
+        ),
+        array (
             'name' => 'Atul Garg',
             'category' => 'technosearch',
             'designation' => 'Events Head',
@@ -109,7 +116,7 @@ $data=array (
             'facebook_link' => 'https://www.facebook.com/aman.gusain.315',
         ),
         array (
-            'name' => 'Rakshan Khan',
+            'name' => 'Rakhshan Khan',
             'category' => 'technosearch',
             'designation' => 'Décor Head',
             'contact' => '+91-7977376905',
