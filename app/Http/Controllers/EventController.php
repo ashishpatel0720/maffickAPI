@@ -111,6 +111,7 @@ class EventController extends Controller
         //optional fields may be empty, if they are empty then we have to replace the old ones
         $event->longitude = isset($data['longitude'])? $data['longitude']:null;
         $event->lattitude = isset($data['lattitude'])? $data['lattitude']:null;
+        $event->event_datatime = isset($data['event_datatime'])? $data['event_datatime']:null;
         $event->name2 = isset($data['name2'])? $data['name2']:null;
         $event->email2 = isset($data['email2'])? $data['email2']:null;
         $event->contact2 = isset($data['contact2'])? $data['contact2']:null;
