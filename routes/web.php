@@ -13,21 +13,16 @@
 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
-
-    $router->get("/",function(){
+//    $router->get("/",function(){
 //        return view("home");
-    });
+//    });
+//
     $router->get('team', 'TeamController@index');
     $router->post("contacts",'ContactController@store');
-  //  $router->get('/contacts','ContactController@index');
 
     //events
     $router->get("events",'EventController@index');
     $router->get("events/{event_slug}",'EventController@show');
-    //$router->post("events","EventController@store");
-                 //can update every thing except name
-   // $router->put("events/{event_slug}/edit","EventController@edit");
-    //$router->delete("events/{event_slug}/delete","EventController@destroy");
 
     //categories
     $router->get('/categories','EventController@categories');
@@ -38,14 +33,22 @@ $router->get("/",function(){
     return redirect("api/");
 });
 
-////api for admin api only
-//$router->group(['prefix' => 'admin/api'], function () use ($router){
-//   //show all contacts
-//});
-
-$router->group(['prefix'=>'admin'],function () use ($router){
+//api for admin api only
+$router->group(['prefix' => 'admin@technosearch'], function () use ($router){
+   $router->get('/contacts','ContactController@index');$router->post("events","EventController@store");
+   //                 can update every thing except name
+   $router->put("events/{event_slug}/edit","EventController@edit");
+   $router->delete("events/{event_slug}/delete","EventController@destroy");
    $router->get('/',function(){
        //this view will start the vue application
-//       return view("admin");
+       return view("admin");
    });
+
 });
+
+//$router->group(['prefix'=>'admin'],function () use ($router){
+//   $router->get('/',function(){
+//       //this view will start the vue application
+//       return view("admin");
+//   });
+//});

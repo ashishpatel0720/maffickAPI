@@ -268,7 +268,7 @@ Vue.component("event-add-form",{
     },
     methods:{
         submitForm(){
-            axios.post("/api/events",this.eventdata)
+            axios.post("/admin@technosearch/events",this.eventdata)
                 .then((response)=>{
                     Event.$emit('success',response);
                 })
@@ -539,7 +539,7 @@ Vue.component("event-edit-form",{
                 return;
             }
 
-            axios.put("/api/events/"+this.eventdata.slug+'/edit',this.eventdata)
+            axios.put("/admin@technosearch/events/"+this.eventdata.slug+'/edit',this.eventdata)
                 .then((response)=>{
                     Event.$emit('message',{message:"Event Data updated!",title:'Success'});
                     // Event.$emit('success',response);
@@ -690,7 +690,7 @@ Vue.component('view-contacts',{
         }
     },
     created(){
-        axios.get("/api/contacts")
+        axios.get("/admin@technosearch/contacts")
             .then((response)=>{
                 this.contacts=response.data.data;
                 console.log(response);
