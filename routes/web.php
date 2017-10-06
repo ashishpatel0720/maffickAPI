@@ -15,19 +15,19 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
 
     $router->get("/",function(){
-        return view("home");
+//        return view("home");
     });
     $router->get('team', 'TeamController@index');
     $router->post("contacts",'ContactController@store');
-    $router->get('/contacts','ContactController@index');
+  //  $router->get('/contacts','ContactController@index');
 
     //events
     $router->get("events",'EventController@index');
     $router->get("events/{event_slug}",'EventController@show');
-    $router->post("events","EventController@store");
+    //$router->post("events","EventController@store");
                  //can update every thing except name
-    $router->put("events/{event_slug}/edit","EventController@edit");
-    $router->delete("events/{event_slug}/delete","EventController@destroy");
+   // $router->put("events/{event_slug}/edit","EventController@edit");
+    //$router->delete("events/{event_slug}/delete","EventController@destroy");
 
     //categories
     $router->get('/categories','EventController@categories');
@@ -46,6 +46,6 @@ $router->get("/",function(){
 $router->group(['prefix'=>'admin'],function () use ($router){
    $router->get('/',function(){
        //this view will start the vue application
-       return view("admin");
+//       return view("admin");
    });
 });
