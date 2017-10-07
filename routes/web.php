@@ -35,14 +35,13 @@ $router->get("/",function(){
 
 //api for admin api only
 $router->group(['prefix' => 'admin@technosearch'], function () use ($router){
-   $router->get('/contacts','ContactController@index');$router->post("events","EventController@store");
-   //                 can update every thing except name
-   $router->put("events/{event_slug}/edit","EventController@edit");
-   $router->delete("events/{event_slug}/delete","EventController@destroy");
-//   $router->get('/',function(){
-//       //this view will start the vue application
-//       return view("admin");
-//   });
+   $router->get('/contacts','ContactController@index');
+    $router->delete('/contacts/{contact_id}','ContactController@delete');
+
+    //                 can update every thing except name
+    $router->put("events/{event_slug}/edit","EventController@edit");
+    $router->post("events","EventController@store");
+    $router->delete("events/{event_slug}/delete","EventController@destroy");
 
 });
 

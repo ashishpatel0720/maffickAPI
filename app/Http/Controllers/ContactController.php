@@ -37,9 +37,23 @@ class ContactController extends Controller
 
         $new_contact=Contact::create($data);
         return response()->json(['data'=>[
-
             $new_contact
         ]],201);
+    }
+
+    public static function  delete($contact_id)
+    {
+        if(Contact::destroy($contact_id))
+            return response()->json([
+                'success'=>true,
+                ]
+                ,201);
+        else
+            return response()->json([
+                'success'=>false,
+                ]
+                ,201);
+
     }
 }
 

@@ -647,7 +647,7 @@ Vue.component("contact-message",{
        <article class="message is-primary" v-show="isVisible">
    <div class="message-header">
     <p>{{contact.name}} <{{contact.email}} {{contactNumber}}> says...</p>
-    <button  @click="isVisible=false" class="delete" aria-label="delete" title="Hide this message"></button>
+    <button  @click="deleteContact(contact.id)" class="delete" aria-label="delete" title="Delete this message"></button>
   </div>
   <div class="message-body">
         {{contact.message}}
@@ -660,10 +660,26 @@ Vue.component("contact-message",{
             isVisible:true
         }
     },
+    methods:{
+        deleteContact(id){
+            axios.delete('/admin@technosearch/contacts/'+id)
+                .then(response=>{
+                    this.isVisible=false;
+                    if(response.data.success==true)
+                        Event.$emit('message',{message:"Contact has been deleted!",title:'Success'});
+                    else
+                        Event.$emit('message',{message:"Contact can't be delete!",title:"can't be deleted"});
+                })
+                .catch(response=>{
+                    console.error("Error while sending delete contact request");
+                    Event.$emit('message',{message:"Error, in deleting contact",title:'Error'});
+                });
+        }
+    },
     computed:{
         contactNumber(){
             if(this.contact.contact!="")
-            return " | +91-"+this.contact.contact;
+                return " | +91-"+this.contact.contact;
         }
     }
 });
@@ -693,11 +709,9 @@ Vue.component('view-contacts',{
         axios.get("/admin@technosearch/contacts")
             .then((response)=>{
                 this.contacts=response.data.data;
-                console.log(response);
             })
             .catch((response)=>{
                 console.error("Error in fetching contacts");
-                console.log(response);
             });
     }
 });
