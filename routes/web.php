@@ -39,16 +39,16 @@ $router->group(['prefix' => 'admin@technosearch'], function () use ($router){
    //                 can update every thing except name
    $router->put("events/{event_slug}/edit","EventController@edit");
    $router->delete("events/{event_slug}/delete","EventController@destroy");
-   $router->get('/',function(){
-       //this view will start the vue application
-       return view("admin");
-   });
-
-});
-
-//$router->group(['prefix'=>'admin'],function () use ($router){
 //   $router->get('/',function(){
 //       //this view will start the vue application
 //       return view("admin");
 //   });
-//});
+
+});
+
+$router->group(['prefix'=>'admin@ashish'],function () use ($router){
+   $router->get('/',function(){
+       //this view will start the vue application
+       return view("admin");
+   });
+});

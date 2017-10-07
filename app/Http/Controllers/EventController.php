@@ -107,6 +107,8 @@ class EventController extends Controller
         $event->name1 = $data['name1'];
         $event->email1 = $data['email1'];
         $event->contact1 = $data['contact1'];
+        $event->description1 = $data['description1'];
+
 
         //optional fields may be empty, if they are empty then we have to replace the old ones
         $event->longitude = isset($data['longitude'])? $data['longitude']:null;
