@@ -646,7 +646,7 @@ Vue.component("contact-message",{
     template:`
        <article class="message is-primary" v-show="isVisible">
    <div class="message-header">
-    <p>{{contact.name}} <{{contact.email}} {{contactNumber}}> says...</p>
+    <p>{{contact.name}} < <a :href="'mailto:'+contact.email">{{contact.email}}</a> <a :href="'tel:'+contactNumber">{{contactNumber}}</a> > says...</p>
     <button  @click="deleteContact(contact.id)" class="delete" aria-label="delete" title="Delete this message"></button>
   </div>
   <div class="message-body">
