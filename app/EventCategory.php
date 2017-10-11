@@ -24,11 +24,13 @@ class EventCategory extends Model
          We invite you all to come forward think hard for  extremely mind bending competitions of this year.'
             ,'imageurl'=>'imgUrl'],
 
+         ['name'=>'lectures',
+            'description'=>
+        '
+          Step into the shoes of some of the most dynamic and pioneering personalities of Different Feilds, as they give you an insight into their lives and research. Inspiring, Innovative, Revolutionary stories, we\'ve got them all here at Technosearch, MANIT Bhopal.'
+        ,'imageurl'=>'imgUrl'],
 //        ['name'=>'informals','description'=>'','imageurl'=>'imgUrl'],
 //        ['name'=>'workshops','description'=>'','imageurl'=>'imgUrl'],
-//        ['name'=>'lectures','description'=>'','imageurl'=>'imgUrl'],
 //        ['name'=>'exhibitions','description'=>'','imageurl'=>'imgUrl']
     ];
-
-
 }
