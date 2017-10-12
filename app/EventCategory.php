@@ -27,8 +27,13 @@ class EventCategory extends Model
             'description'=>
         'Step into the shoes of some of the most dynamic and pioneering personalities of Different Feilds, as they give you an insight into their lives and research. Inspiring, Innovative, Revolutionary stories, we\'ve got them all here at Technosearch, MANIT Bhopal.'
         ,'imageurl'=>'imgUrl'],
+        ['name'=>'exhibitions',
+            'description'=>'Technosearch promises you a unique collection of exhibitions and leave you enchanted and astounded. Exhibitions here are one of those rare avenues where you can see and experience modern science and technology. It provides unparalleled variety and have something for each one to look forward.',
+            'imageurl'=>'imgUrl'],
+
+        ['name'=>'workshops',
+            'description'=>'Technosearch Provides you unique workshops to make let you gain knowledge about some current flourishing technologies.',
+            'imageurl'=>'imgUrl'],
 //        ['name'=>'informals','description'=>'','imageurl'=>'imgUrl'],
-//        ['name'=>'workshops','description'=>'','imageurl'=>'imgUrl'],
-//        ['name'=>'exhibitions','description'=>'','imageurl'=>'imgUrl']
     ];
 }
