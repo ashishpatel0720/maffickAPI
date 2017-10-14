@@ -129,6 +129,13 @@ $data=array (
             'contact' => '+91-9685977803',
             'facebook_link' => 'https://www.facebook.com/yaman.chourey.9',
         ),
+     array (
+            'name' => 'Abhisek Raj',
+            'category' => 'technosearch',
+            'designation' => 'Graffitti Head',
+            'contact' => '+91-8236892418',
+            'facebook_link' => ' https://www.facebook.com/01abhiraj',
+        ),
 );
 
 return response()->json(['data'=>$data],200);
