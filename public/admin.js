@@ -8,7 +8,7 @@ Vue.component('hero',{
       <div class="container">
         <div class="nav-left">
           <a class="nav-item">
-              <span style="color:white;font-weight: bolder">Technosearch Admin</span>
+              <span style="color:white;font-weight: bolder">Maffick Admin</span>
           </a>
         </div>
         <span @click="toggleNavbar" :class="{'nav-toggle':true,'is-active':navBarToggle}">
@@ -268,7 +268,7 @@ Vue.component("event-add-form",{
     },
     methods:{
         submitForm(){
-            axios.post("/admin@technosearch/events",this.eventdata)
+            axios.post("/admin@maffick/events",this.eventdata)
                 .then((response)=>{
                     Event.$emit('success',response);
                 })
@@ -539,7 +539,7 @@ Vue.component("event-edit-form",{
                 return;
             }
 
-            axios.put("/admin@technosearch/events/"+this.eventdata.slug+'/edit',this.eventdata)
+            axios.put("/admin@maffick/events/"+this.eventdata.slug+'/edit',this.eventdata)
                 .then((response)=>{
                     Event.$emit('message',{message:"Event Data updated!",title:'Success'});
                     // Event.$emit('success',response);
@@ -662,7 +662,7 @@ Vue.component("contact-message",{
     },
     methods:{
         deleteContact(id){
-            axios.delete('/admin@technosearch/contacts/'+id)
+            axios.delete('/admin@maffick/contacts/'+id)
                 .then(response=>{
                     this.isVisible=false;
                     if(response.data.success==true)
@@ -706,7 +706,7 @@ Vue.component('view-contacts',{
         }
     },
     created(){
-        axios.get("/admin@technosearch/contacts")
+        axios.get("/admin@maffick/contacts")
             .then((response)=>{
                 this.contacts=response.data.data;
             })

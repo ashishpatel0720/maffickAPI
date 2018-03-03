@@ -34,7 +34,7 @@ $router->get("/",function(){
 });
 
 //api for admin api only
-$router->group(['prefix' => 'admin@technosearch'], function () use ($router){
+$router->group(['prefix' => 'admin@maffick'], function () use ($router){
    $router->get('/contacts','ContactController@index');
     $router->delete('/contacts/{contact_id}','ContactController@delete');
 
