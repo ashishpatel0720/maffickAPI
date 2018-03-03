@@ -47,7 +47,7 @@ $router->group(['prefix' => 'admin@technosearch'], function () use ($router){
 
 
 //for view area
-$router->group(['prefix'=>'admin@ashish'],function () use ($router){
+$router->group(['prefix'=>'428b6da53085b8fd7b37e9fb259c0c609bd09984'],function () use ($router){
    $router->get('/',function(){
        //this view will start the vue application
        return view("admin");
