@@ -694,7 +694,12 @@ Vue.component('view-contacts',{
       <div class="columns">
 <div class="column is-7-desktop is-offset-2-desktop">
 <h1 class="title" style="margin-top:1em;">{{title}}</h1>
-   <contact-message v-for="contact in contacts":contact="contact"></contact-message>
+   <div v-if="contacts.length!=0">
+   <contact-message v-for="contact in contacts":contact="contact"></contact-message>   
+   </div>
+   <div v-else>
+       <p>No Pending contacts</p>
+   </div>
    </div>
    </div>
    </div>
