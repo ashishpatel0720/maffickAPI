@@ -13,10 +13,10 @@
 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
-//    $router->get("/",function(){
-//        return view("home");
-//    });
-//
+    $router->get("/",function(){
+        return view("home");
+    });
+
     $router->get('team', 'TeamController@index');
     $router->post("contacts",'ContactController@store');
 
@@ -45,6 +45,8 @@ $router->group(['prefix' => 'admin@technosearch'], function () use ($router){
 
 });
 
+
+//for view area
 $router->group(['prefix'=>'admin@ashish'],function () use ($router){
    $router->get('/',function(){
        //this view will start the vue application

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-
     public function index()
     {
         $contacts=Contact::latest()->get(); //added for returning in descending order of time
