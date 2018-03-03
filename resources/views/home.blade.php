@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Technosearch API</title>
+    <title>Maffick API</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.4/css/bulma.min.css">
     <style>
 
@@ -160,14 +160,6 @@
             <tr class="odd">
                 <td>GET /team</td>
                 <td align="center">Return all team members</td>
-            </tr>
-            <tr class="even">
-                <td>GET /order/{orderId}</td>
-                <td align="center">Order Details</td>
-            </tr>
-            <tr class="odd">
-                <td>GET /order/{orderId}/agent</td>
-                <td align="center">Agent who has Delivered Order</td>
             </tr>
             </tbody>
         </table>
