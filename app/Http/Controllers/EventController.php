@@ -143,13 +143,18 @@ class EventController extends Controller
 
     public function categories()
     {
-
-        return response()->json(['data'=>EventCategory::$categories],200);
+        $categories=EventCategory::$categories;
+        $categories=array_prepend($categories,[
+            'name'=>'all',
+            'description'=>'Category for all categories events',
+            'imageurl'=>'imgUrl']);
+    
+        return response()->json(['data'=>$categories],200);
 
     }
 
     public function eventByCategory($category)
-    {
+    {    
         $events=Event::where("category",$category)->get();
         if(count($events)!=0)
             return response()->json(['data'=>$events],200);
